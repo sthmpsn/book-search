@@ -5,27 +5,32 @@ import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Book from "../components/Book/Book";
+import API from "../utils/API";
 
-var Book1 = {
-    id: "1",
-    title: "LOTR",
-    imageLink: "https://www.pinsound.org/wp-content/uploads/2017/04/lotr_bg.resized.png"
-}
-
-var Book2 = {
-    id: "2",
-    title: "Harry Potter",
-    imageLink: "https://m.media-amazon.com/images/M/MV5BMjIyZGU4YzUtNDkzYi00ZDRhLTljYzctYTMxMDQ4M2E0Y2YxXkEyXkFqcGdeQXVyNTIzOTk5ODM@._V1_.jpg"
-}
 
 class Search extends React.Component {
-
     state = {
-        books: [Book1, Book2]
+        books: [],
+        searchString: ""
+    };
+
+    handleInputChange = event => {
+        this.setState({ searchString: event.target.value });
+    };
+
+    handleFormSubmit = (event) => {
+        event.preventDefault();
+        API.getGoogleBooks(this.state.searchString)
+            .then(res => {
+                // console.log(res.data);
+                this.setState({ books: res.data })
+            })
+            .catch(err => console.log(err));
     };
 
 
-    render(){
+
+    render() {
         return (
             <Container>
                 <Row>
@@ -33,27 +38,29 @@ class Search extends React.Component {
                         <Form>
                             <Form.Group controlID="frmSearchBook">
                                 <Form.Label>Search Google Books</Form.Label>
-                                <Form.Control type="input" />
+                                <Form.Control
+                                    type="input"
+                                    value={this.state.searchString}
+                                    onChange={this.handleInputChange}
+                                    name="searchBox"
+                                    id="searchBox"
+                                />
                                 <Form.Text className="text-muted">
                                     Search by Title or Author name
                                 </Form.Text>
                             </Form.Group>
-                            <Button variant="primary" type="submit">
+                            <Button variant="primary" type="submit" onClick={this.handleFormSubmit}>
                                 Search
                             </Button>
                         </Form>
                     </Col>
                 </Row>
-                <Row>
-                    <Col>
-                        <h1>Search Results Here</h1>
-                            {this.state.books.map(book => (
-                                <Book
-                                    book = {book}
-                                />
-                            ))}
-                    </Col>
-                </Row>
+                    <h1>Search Results Here</h1>
+                    {this.state.books.map(book => (
+                        <Book className="border dark px-5"
+                            book={book}
+                        />
+                    ))}
             </Container>
         );
     }

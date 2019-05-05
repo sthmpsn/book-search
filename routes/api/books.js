@@ -15,29 +15,27 @@ router.route("/:id")
 
 
 // Matches with "/api/books/search"
-router.route("/search") 
-  .post(function(req, res){
+router.route("/search")
+  .post(function (req, res) {
     var query = req.body.searchTerm
-    console.log("Search Term: " +query)
+    console.log("Search Term: " + query)
     axios.get("https://www.googleapis.com/books/v1/volumes?q=" + query)
-      .then(function(response){
+      .then(function (response) {
         books = response.data.items;
         result = [];
 
         books.forEach(book => {
-          result.push({"title": book.volumeInfo.title})
-          result.push({"authors": book.volumeInfo.authors})
-          result.push({"desc": book.volumeInfo.description})
-          result.push({"imageLink": book.volumeInfo.imageLinks.thumbnail})
-          result.push({"link": book.volumeInfo.previewLink})
+          result.push({
+            "title": book.volumeInfo.title,
+            "authors": book.volumeInfo.authors,
+            "desc": book.volumeInfo.description,
+            "imageLink": book.volumeInfo.imageLinks.thumbnail,
+            "link": book.volumeInfo.previewLink
+          });
         });
-
         console.log(result);
-
-
         res.json(result);
       });
-  
   });
 
 
