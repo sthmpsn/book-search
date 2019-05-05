@@ -2,3 +2,7 @@
     width: 250px;
     height: 250px;
 }
+
+.book-desc {
+    font-size: .9rem;
+}
