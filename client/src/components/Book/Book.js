@@ -10,7 +10,7 @@ function Book(props) {
 
     return (
         <Row className="my-4 border border-secondary rounded">
-            <Col>
+            <Col className="border">
                 <Row className="justify-content-between">
                     <Col lg={5} className="mt-3">
                         <ListGroup>
@@ -18,7 +18,7 @@ function Book(props) {
                             <ListGroup.Item className="border-0 py-1 h6 pl-1">Written By: {props.book.authors}</ListGroup.Item>
                         </ListGroup>
                     </Col>
-                    <Col lg={3} className="mt-3">
+                    <Col lg={3} className="mt-3 text-right">
                         <Button className="mx-2" href={props.book.link} target="_blank">View</Button>
                         <Button className="mx-2">Save</Button>
                     </Col>
