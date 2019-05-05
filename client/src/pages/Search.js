@@ -36,26 +36,34 @@ class Search extends React.Component {
                 <Row>
                     <Col>
                         <Form>
-                            <Form.Group controlID="frmSearchBook">
-                                <Form.Label>Search Google Books</Form.Label>
-                                <Form.Control
-                                    type="input"
-                                    value={this.state.searchString}
-                                    onChange={this.handleInputChange}
-                                    name="searchBox"
-                                    id="searchBox"
-                                />
-                                <Form.Text className="text-muted">
-                                    Search by Title or Author name
-                                </Form.Text>
-                            </Form.Group>
-                            <Button variant="primary" type="submit" onClick={this.handleFormSubmit}>
-                                Search
-                            </Button>
+                            <Row>
+                                <Col>
+                                    <Form.Group controlID="frmSearchBook" className="mb-0">
+                                        <Form.Label>Book Search</Form.Label>
+                                        <Form.Control
+                                            type="input"
+                                            value={this.state.searchString}
+                                            onChange={this.handleInputChange}
+                                            name="searchBox"
+                                            id="searchBox"
+                                        />
+                                        <Form.Text className="text-muted">
+                                            Search by Title or Author name
+                                        </Form.Text>
+                                    </Form.Group>
+                                </Col>
+                            </Row>
+                            <Row >
+                                <Col className="text-right">
+                                    <Button variant="primary" type="submit" onClick={this.handleFormSubmit}>
+                                        Search
+                                    </Button>
+                                </Col>
+                            </Row>
                         </Form>
                     </Col>
                 </Row>
-                    <h1>Search Results Here</h1>
+                    <h3>Results</h3>
                     {this.state.books.map(book => (
                         <Book className="border dark px-5"
                             book={book}
