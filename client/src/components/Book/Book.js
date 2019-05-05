@@ -19,7 +19,7 @@ function Book(props) {
                     </ListGroup>
                 </Col>
                 <Col lg={3}>
-                    <Button className="mx-2">View</Button>
+                    <Button className="mx-2" href={props.book.link} target="_blank">View</Button>
                     <Button className="mx-2">Save</Button>
                 </Col>
             </Row>
