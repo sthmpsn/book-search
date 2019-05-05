@@ -21,7 +21,7 @@ class Search extends React.Component {
 
     handleFormSubmit = (event) => {
         event.preventDefault();
-        API.getGoogleBooks(this.state.searchString)
+        API.searchGoogleBooks(this.state.searchString)
             .then(res => {
                 // console.log(res.data);
                 this.setState({ books: res.data })
