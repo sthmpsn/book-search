@@ -1,0 +1,8 @@
+.jumbotron{
+    background-image: url("../../assets/images/book.jpg");
+    background-size: cover;
+}
+
+h1 > .fa-react {
+    color: #61dafb;
+}
