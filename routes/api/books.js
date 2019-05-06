@@ -3,18 +3,22 @@ const booksController = require("../../controllers/booksController");
 const axios = require("axios");
 
 // Matches with "/api/books"
+// GET: Only "Saved" books would be entered into the DB
+// POST: Create/Add book to DB if user "Saved" book
 router.route("/")
   .get(booksController.findAll)
   .post(booksController.create);
 
-// Matches with "/api/books/:id"
+ // Matches with "/api/books/:id"
+// Delete book from db if user removes the "Saved" status
 router.route("/:id")
   .get(booksController.findById)
   .put(booksController.update)
   .delete(booksController.remove);
 
-
+  
 // Matches with "/api/books/search"
+// This goes out to Google Books API and performace a Query
 router.route("/search")
   .post(function (req, res) {
     var query = req.body.searchTerm

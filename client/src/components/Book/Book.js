@@ -25,7 +25,7 @@ function Book(props) {
                 </Row>
                 <Row>
                     <Col lg={3}>
-                        <a href={props.book.link} target="_blank">
+                        <a href={props.book.link} target="_blank" rel="noopener noreferrer">
                             <Image src={props.book.imageLink} thumbnail fluid/>
                         </a>
                     </Col>

@@ -5,10 +5,8 @@ import axios from "axios";
 export default {
     searchGoogleBooks: function (searchString) {
         return axios.post("/api/books/search", {"searchTerm": searchString })
-            
+    },
+    getSavedBooks: function() {
+        return axios.get("/api/books");
     }
-
-
-
-
 };
