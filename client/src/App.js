@@ -5,7 +5,7 @@ import Search from "./pages/Search";
 import Saved from "./pages/Saved";
 import NoMatch from "./pages/NoMatch";
 import Wrapper from "./components/Wrapper/Wrapper";
-import Navbar from "./components/Navbar/Navbar";
+import NavBoot from "./components/NavBoot/NavBoot";
 import Footer from "./components/Footer/Footer";
 
 
@@ -14,7 +14,7 @@ class App extends Component {
     return (
       <Router>
         <Wrapper>
-          <Navbar />
+          <NavBoot/>
           <Switch>
             <Route exact path="/" component={Search} />
             <Route exact path="/saved" component={Saved} />
