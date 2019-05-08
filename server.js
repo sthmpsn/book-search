@@ -16,11 +16,11 @@ if (process.env.NODE_ENV === "production") {
 
 
 // Mongo DB Heroku or local connection
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/googlebooks";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/booksearch";
 
 // Connect to the Mongo DB
 // mongoose.connect("mongodb://localhost/scraper", { useNewUrlParser: true });
-mongoose.connect(MONGODB_URI);
+mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
 
 
 // Define API routes here

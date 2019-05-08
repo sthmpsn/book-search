@@ -7,6 +7,9 @@ export default {
         return axios.post("/api/books/search", {"searchTerm": searchString })
     },
     getSavedBooks: function() {
-        return axios.get("/api/books");
+        return axios.get("/api/books")
+    },
+    saveBook: function(bookData) {
+        return axios.post("/api/books", bookData);
     }
 };
