@@ -28,6 +28,14 @@ class Search extends React.Component {
             .catch(err => console.log(err));
     };
 
+    handleSaveBook = (book) => {
+        API.saveBook(book)
+            .then(res => {
+                console.log(res.data);
+                
+            })
+            .catch(err => console.log(err));
+    };
 
 
     render() {
@@ -70,6 +78,7 @@ class Search extends React.Component {
                     {this.state.books.map(book => (
                         <Book className="border dark px-5"
                             book={book}
+                            handleSaveBook={this.handleSaveBook}
                         />
                     ))}
                 </Container>
