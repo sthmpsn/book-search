@@ -7,6 +7,7 @@ import Button from "react-bootstrap/Button";
 import Book from "../components/Book/Book";
 import API from "../utils/API";
 
+let tempUID = 0;
 
 class Search extends React.Component {
     state = {
@@ -31,7 +32,7 @@ class Search extends React.Component {
     handleSaveBook = (book) => {
         API.saveBook(book)
             .then(res => {
-                console.log(res.data);
+                console.log("Save Book: ",res.data);
                 
             })
             .catch(err => console.log(err));
@@ -77,6 +78,7 @@ class Search extends React.Component {
                     <h5>Results</h5>
                     {this.state.books.map(book => (
                         <Book className="border dark px-5"
+                            key={tempUID++}
                             book={book}
                             handleSaveBook={this.handleSaveBook}
                         />
