@@ -13,7 +13,9 @@ class Saved extends React.Component {
 
     componentDidMount() {
         API.getSavedBooks()
-            .then(res => this.setState({savedBooks: res.data}))
+            .then(res => 
+                this.setState({savedBooks: res.data})
+            )
             .catch(err => console.log(err));
     };
 
@@ -22,12 +24,16 @@ class Saved extends React.Component {
             <Container>
                 <Row>
                     <Col>
-                        <h5>SAVED BOOKS PAGE</h5>
-                        {this.state.savedBooks.map(book => (
-                            <Book className="border dark px-5"
-                                book={book}
-                            />
-                        ))}
+                        {/* <h5>SAVED BOOKS PAGE</h5> */}
+                        {this.state.savedBooks.map(book => {
+                            console.log("Mapped Books: ", book)
+                            return (
+                                <Book className="border dark px-5"
+                                    book={book}
+                                    bookStatus="saved"
+                                    />
+                            );
+                        })}
                     </Col>
                 </Row>
             </Container>

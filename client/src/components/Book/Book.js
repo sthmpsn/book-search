@@ -20,7 +20,9 @@ function Book(props) {
                     </Col>
                     <Col lg={3} className="mt-3 text-right">
                         <Button className="mx-2" href={props.book.link} target="_blank">View</Button>
-                        <Button className="mx-2" id={props.book.id} onClick={props.handleSaveBook(props.book)}>Save</Button>
+                        {props.bookStatus !== "saved" &&
+                            <Button className="mx-2" id={props.book.id} onClick={props.handleSaveBook(props.book)}>Save</Button>
+                        }
                     </Col>
                 </Row>
                 <Row>
