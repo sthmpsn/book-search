@@ -30,9 +30,16 @@ class Search extends React.Component {
     };
 
     handleSaveBook = (book) => {
-        API.saveBook(book)
+        let bookData = {
+            title: book.title,
+            author: book.authors[0],
+            desc: book.desc,
+            imageLink: book.imageLink,
+            link: book.link,
+        }
+        API.saveBook(bookData)
             .then(res => {
-                console.log("Save Book: ",res.data);
+                console.log("Saved Book: ",res.data);
                 
             })
             .catch(err => console.log(err));

@@ -21,7 +21,10 @@ function Book(props) {
                     <Col lg={3} className="mt-3 text-right">
                         <Button className="mx-2" href={props.book.link} target="_blank">View</Button>
                         {props.bookStatus !== "saved" &&
-                            <Button className="mx-2" id={props.book.id} onClick={props.handleSaveBook(props.book)}>Save</Button>
+                            <Button className="mx-2" id={props.book.id} onClick={() => props.handleSaveBook(props.book)}>Save</Button>
+                        }
+                        {props.bookStatus === "saved" &&
+                            <Button className="mx-2" id={props.book.id} onClick={() => props.handleDeleteBook(props.book.id)}>Delete</Button>
                         }
                     </Col>
                 </Row>

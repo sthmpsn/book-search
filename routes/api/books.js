@@ -37,7 +37,7 @@ router.route("/search")
             "link": book.volumeInfo.previewLink
           });
         });
-        console.log(result);
+        // console.log(result);
         res.json(result);
       });
   });
