@@ -6,7 +6,6 @@ import Saved from "./pages/Saved";
 import NoMatch from "./pages/NoMatch";
 import Wrapper from "./components/Wrapper/Wrapper";
 import NavBoot from "./components/NavBoot/NavBoot";
-import Footer from "./components/Footer/Footer";
 
 
 class App extends Component {
@@ -24,7 +23,6 @@ class App extends Component {
             <Route exact path="/saved" component={Saved} />
             <Route component={NoMatch} />
           </Switch>
-          <Footer/>
         </Wrapper>
       </Router>
     );
