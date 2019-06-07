@@ -27,7 +27,6 @@ class Saved extends React.Component {
         console.log("Delete Book Request: ",bookId)
         API.deleteBook(bookId)
             .then(res => {
-                console.log("Delete Book ID: ",res.data);
                 this.loadSavedBooks();
             })
             .catch(err => console.log(err));

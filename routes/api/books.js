@@ -22,7 +22,7 @@ router.route("/:id")
 router.route("/search")
   .post(function (req, res) {
     var query = req.body.searchTerm
-    console.log("Search Term: " + query)
+    // console.log("Search Term: " + query)
     axios.get("https://www.googleapis.com/books/v1/volumes?q=" + query)
       .then(function (response) {
         books = response.data.items;
@@ -37,7 +37,6 @@ router.route("/search")
             "link": book.volumeInfo.previewLink
           });
         });
-        // console.log(result);
         res.json(result);
       });
   });
