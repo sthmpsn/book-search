@@ -1,10 +1,20 @@
+/* Possibly add bg-library image with opacity of .4 to background */
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.navbar-brand>.fa-react {
+  color: #61dafb;
+  font-size: .8rem;
+}
+
+.fa-react.text-danger {
+  animation: spin-clockwise infinite 10s linear;
+}
+
+.fa-react.text-warning {
+  animation: spin-counter-clock infinite 10s linear;
 }
 
 .App-header {
@@ -18,7 +28,20 @@
   font-size: large;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+@keyframes spin-clockwise {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin-counter-clock {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
 }

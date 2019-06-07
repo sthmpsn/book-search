@@ -10,9 +10,6 @@ import NavBoot from "./components/NavBoot/NavBoot";
 
 class App extends Component {
   
-
-
-
   render() {
     return (
       <Router>
