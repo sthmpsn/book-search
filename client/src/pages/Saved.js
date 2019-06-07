@@ -39,7 +39,7 @@ class Saved extends React.Component {
                             console.log("Mapped Books: ", book)
                             return (
                                 <Book className="border dark px-5"
-                                    key={book.id}
+                                    key={book._id}
                                     book={book}
                                     bookStatus="saved"
                                     handleDeleteBook={this.handleDeleteBook}
