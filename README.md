@@ -20,8 +20,4 @@ https://my-google-booksearch.herokuapp.com/
 <img src="design/screenshots/04-savedBooks.jpg" width="250" alt="savedBooks">
 
 ## Contributors
-* Ashlen Bruns (ashlenbruns)
-* Scott Anderson (ScottTAnderson)
-* Bryan Bloomquist (bryanbloomquist)
-* John Evans (evanjo03)
 * Steve Thompson (sthmpsn)
