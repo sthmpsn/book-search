@@ -36,11 +36,16 @@ class Search extends React.Component {
             desc: book.desc,
             imageLink: book.imageLink,
             link: book.link,
+            gid: book.gid
         }
+
         API.saveBook(bookData)
             .then(res => {
                 console.log("Saved Book: ",res.data);
-                
+                console.log(`"${bookData.gid}"`);
+                let saveBtn = document.querySelector(`[data-gid="${bookData.gid}"]`);
+                saveBtn.classList.add("btn-success");
+                saveBtn.classList.remove("btn-primary");
             })
             .catch(err => console.log(err));
     };
@@ -55,7 +60,7 @@ class Search extends React.Component {
                         <Form>
                             <Row>
                                 <Col>
-                                    <Form.Group controlID="frmSearchBook" className="my-4 p-4 border">
+                                    <Form.Group controlId="frmSearchBook" className="my-4 p-4 border">
                                         <Form.Label>Book Search</Form.Label>
                                         <Form.Control
                                             type="input"

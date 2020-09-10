@@ -21,23 +21,31 @@ router.route("/:id")
 // This goes out to Google Books API and performace a Query
 router.route("/search")
   .post(function (req, res) {
-    var query = req.body.searchTerm
-    // console.log("Search Term: " + query)
-    axios.get("https://www.googleapis.com/books/v1/volumes?q=" + query)
+    var query = req.body.searchTerm;
+    console.log("Search Term: " + query.replace(/ /g,'%20'));
+    axios.get("https://www.googleapis.com/books/v1/volumes?q=" + query.replace(/ /g,'%20'))
       .then(function (response) {
         books = response.data.items;
         result = [];
 
         books.forEach(book => {
-          result.push({
-            "title": book.volumeInfo.title,
-            "authors": book.volumeInfo.authors,
-            "desc": book.volumeInfo.description,
-            "imageLink": book.volumeInfo.imageLinks.thumbnail,
-            "link": book.volumeInfo.previewLink
-          });
+          console.log(book.volumeInfo.title);
+          // Don't show any books without a thumbnail image. 
+          if (book.volumeInfo.imageLinks !== undefined){
+            result.push({
+              "title": book.volumeInfo.title,
+              "authors": book.volumeInfo.authors,
+              "desc": book.volumeInfo.description,
+              "imageLink": book.volumeInfo.imageLinks.thumbnail,
+              "link": book.volumeInfo.previewLink,
+              "gid": book.id
+            });
+          }
         });
         res.json(result);
+      })
+      .catch(function(error){
+        console.log(error);
       });
   });
 

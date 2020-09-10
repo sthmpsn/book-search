@@ -10,7 +10,7 @@ function Book(props) {
 
     return (
         <Row className="my-4 border border-secondary rounded">
-            <Col className="border">
+            <Col className="border p-5">
                 <Row className="justify-content-between">
                     <Col lg={5} className="mt-3">
                         <ListGroup>
@@ -21,7 +21,7 @@ function Book(props) {
                     <Col lg={3} className="mt-3 text-right">
                         <Button className="mx-2" href={props.book.link} target="_blank">View</Button>
                         {props.bookStatus !== "saved" &&
-                            <Button className="mx-2" id={props.book._id} onClick={() => props.handleSaveBook(props.book)}>Save</Button>
+                            <Button className="mx-2" data-gid={props.book.gid} onClick={() => props.handleSaveBook(props.book)}>Save</Button>
                         }
                         {props.bookStatus === "saved" &&
                             <Button className="mx-2" id={props.book._id} onClick={() => props.handleDeleteBook(props.book._id)}>Delete</Button>

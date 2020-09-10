@@ -1,8 +1,7 @@
-#header{
-    background-image: url("../../assets/images/book.jpg");
-    background-size: cover;
-}
-
 h1 > .fa-react {
     color: #61dafb;
+}
+
+h2 {
+    font-size: 1.3rem;
 }
